@@ -2,7 +2,7 @@ import React from 'react'
 import { Divider } from '../ui/dividers'
 
 import Project from './Project'
-import { featuredWork } from '@/constants/work'
+import { featuredWork } from '@/constants/data'
 
 const FeaturedWork = () => {
   return (

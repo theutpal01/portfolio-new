@@ -20,6 +20,12 @@ interface GroupButtonType extends ButtonType {
 	active?: string;
 }
 
+interface CardGroupType {
+	title?: string;
+	className?: string;
+	children: React.ReactNode;
+}
+
 interface LinkType {
 	href: string;
 	scroll?: boolean;
@@ -29,4 +35,4 @@ interface LinkType {
 	children: React.ReactNode;
 }
 
-export type { ProjectType, ButtonType, GroupButtonType, LinkType };
+export type { ProjectType, ButtonType, GroupButtonType, CardGroupType, LinkType };
