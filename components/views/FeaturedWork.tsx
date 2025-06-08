@@ -6,9 +6,8 @@ import { featuredWork } from '@/constants/work'
 
 const FeaturedWork = () => {
   return (
-	<div>
-		<div className='my-5'>
-			<h2 className='pb-2 text-primary text-lg font-aldrich'>FEATURED WORK</h2>
+		<div id='work' className='py-5 w-full min-h-screen'>
+			<h2 className='pb-2 text-primary text-base md:text-lg font-aldrich'>FEATURED WORK</h2>
 			<Divider />
 			{featuredWork.map((work, index) => (
 				<div key={index}>
@@ -23,9 +22,9 @@ const FeaturedWork = () => {
 				<Divider key={`divider-${index}`} className='my-5' />
 				</div>
 			))}
-			<h2 className='text-primary text-[3rem] font-nova-round'>MORE WORKS COMING SOON</h2>
+			<p className='text-primary text-[1.5rem] md:text-[3rem] font-nova-round'>MORE WORK COMING SOON</p>
+			<Divider className='mb-8 mt-5' />
 		</div>
-	</div>
   )
 }
 

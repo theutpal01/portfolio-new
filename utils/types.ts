@@ -9,15 +9,24 @@ interface ProjectType {
 interface ButtonType {
 	className?: string;
 	disabled?: boolean;
+	name: string;
+	color?: "primary" | "secondary" | "white";
 	onClick?: () => void;
 	children?: React.ReactNode;
 }
 
+interface GroupButtonType extends ButtonType {
+	id: string;
+	active?: string;
+}
+
 interface LinkType {
 	href: string;
+	scroll?: boolean;
 	className?: string;
 	target?: string;
+	onClick?: () => (void);
 	children: React.ReactNode;
 }
 
-export type { ProjectType, ButtonType, LinkType };
+export type { ProjectType, ButtonType, GroupButtonType, LinkType };

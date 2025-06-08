@@ -4,7 +4,7 @@
   --background: #2b2928;
   --foreground: #F0F0F0;
   --primary: #11BEE0;
-  --secondary: #FF007F;
+  --secondary: #ff3c00;
 }
 @theme inline {
   --color-background: var(--background);
@@ -14,6 +14,7 @@
   --font-monoton: var(--font-monoton);
   --font-nova-round: var(--font-nova-round);
   --font-aldrich: var(--font-aldrich);
+  --font-saira: var(--font-saira-stencil-one);
 }
 /* 
 @media (prefers-color-scheme: dark) {

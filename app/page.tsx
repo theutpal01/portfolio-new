@@ -1,12 +1,14 @@
 import FeaturedWork from '@/components/views/FeaturedWork'
-import HeroSection from '@/components/views/HeroSection'
+import Hero from '@/components/views/Hero'
+import Info from '@/components/views/Info'
 import React from 'react'
 
 const page = () => {
   return (
 	<>
-		<HeroSection />
+		<Hero />
 		<FeaturedWork />
+		<Info />
 	</>
   )
 }
