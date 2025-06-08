@@ -3,13 +3,13 @@ import React from 'react'
 
 const CardGroup = ({className, title, children} : CardGroupType) => {
   return (
-	<div className={`${className} flex flex-col items-start justify-center w-full`}>
+	<div className={`${className} flex flex-col items-center md:items-start justify-center w-full mb-5`}>
 		{title && (
 			<h2 className='text-lg md:text-2xl font-bold text-primary font-aldrich mb-4'>
 				{title}
 			</h2>
 		)}
-		<div className='flex gap-4 flex-wrap'>
+		<div className='flex gap-4 flex-wrap justify-center md:justify-start'>
 			{children}
 		</div>
 	</div>

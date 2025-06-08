@@ -73,7 +73,7 @@ export const skills = {
 			alt: 'Next.js Logo',
 		},
 		{
-			name: 'Tailwind CSS',
+			name: 'Tailwind',
 			imagePath: '/images/stack/frontend/tailwindcss.png',
 			alt: 'Tailwind CSS Logo',
 		},
