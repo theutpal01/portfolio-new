@@ -14,7 +14,7 @@ const Info = () => {
 	}
 
 	return (
-		<div id='info' className='py-5 w-full min-h-screen	'>
+		<div id='info' className='py-5 w-full'>
 			<Group className='pt-5'>
 				{["info", "skills", "contact"].map((id) => (
 					<GroupButton
@@ -31,7 +31,7 @@ const Info = () => {
 			</Group>
 			<Divider />
 
-			<div className='flex items-center justify-center py-5 h-full w-full'>
+			<div className='flex items-center justify-center self-center py-5 h-full w-full'>
 				{active === "info" && <InfoSection />}
 				{active === "skills" && <SkillsSection />}
 				{active === "contact" && <ContactSection />}
