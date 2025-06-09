@@ -26,6 +26,12 @@ const Navigation = () => {
 
 	const handleRedirect = (url: string) => {
 		window.open(url, '_blank');
+		if (isOpen) setIsOpen(false);
+	}
+
+	const handleHomeRefresh = () => {
+		router.push('/');
+		setIsOpen(false);
 	}
 
 	useEffect(() => {
@@ -59,7 +65,7 @@ const Navigation = () => {
 		<nav className={`${visible ? "top-0" : "-top-20"} duration-200 fixed h-20 left-0 w-full z-50 bg-transparent pointer-events-none p-4 md:p-8`}>
 			
 			<div id='nav-start' className={`flex justify-between items-center`}>
-				<Image onClick={() =>router.push("/")} id='nav-icon' className='cursor-pointer z-50 pointer-events-auto w-10 h-10 md:w-12 md:h-12' src={'/images/logo.png'} alt="Logo" width={50} height={50} />
+				<Image onClick={handleHomeRefresh} id='nav-icon' className='cursor-pointer z-50 pointer-events-auto w-10 h-10 md:w-12 md:h-12' src={'/images/logo.png'} alt="Logo" width={50} height={50} />
 				<div className='flex h-fit items-center gap-5 z-50'>
 				<div className='lg:fixed bottom-0 right-0 flex lg:flex-col lg:p-8 gap-3'>
 				<AButton name='instagram redirect' color={isOpen ? "white" : "primary"} className='z-50 pointer-events-auto !text-base md:!text-lg !p-2.5 flex ' disabled={false} onClick={() => handleRedirect('https://www.instagram.com/theutpal01/')}>

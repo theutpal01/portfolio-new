@@ -5,7 +5,7 @@ import React from 'react'
 
 const SkillsSection = () => {
   return (
-	<div className='flex flex-col gap-5 items-center justify-center w-full min-h-screen'>
+	<div className='flex flex-col gap-5 items-center justify-center w-full'>
 		
 		<CardGroup title='Languages'>
 			{skills.languages.map((skill, index) => (

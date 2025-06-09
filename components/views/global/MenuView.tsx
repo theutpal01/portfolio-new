@@ -79,9 +79,9 @@ const MenuView = ({open, setOpen}: {open: boolean, setOpen : Dispatch<SetStateAc
 				<Divider className='block md:hidden !bg-white' />
 				<div className='flex flex-col h-fit w-full text-right justify-end pb-4 lg:pr-8 font-aldrich text-sm md:pb-8'>
 					<h2>LINKS</h2>
-					<Link href='https://www.instagram.com/theutpal01' target='_blank' className='text-lg md:text-2xl font-nova-round hover:text-white text-slate-200 duration-100 ease-linear'>Instagram</Link>
-					<Link href='https://www.x.com/theutpal01' target='_blank' className='text-lg md:text-2xl font-nova-round hover:text-white text-slate-200 duration-100 ease-linear'>Twitter</Link>
-					<Link href='https://www.github.com/theutpal01' target='_blank' className='text-lg md:text-2xl font-nova-round hover:text-white text-slate-200 duration-100 ease-linear'>Github</Link>
+					<Link href='https://www.instagram.com/theutpal01' target='_blank' className='text-lg md:text-2xl font-nova-round hover:text-white text-slate-200 duration-100 ease-linear' onClick={() => setOpen(false)}>Instagram</Link>
+					<Link href='https://www.x.com/theutpal01' target='_blank' className='text-lg md:text-2xl font-nova-round hover:text-white text-slate-200 duration-100 ease-linear' onClick={() => setOpen(false)}>Twitter</Link>
+					<Link href='https://www.github.com/theutpal01' target='_blank' className='text-lg md:text-2xl font-nova-round hover:text-white text-slate-200 duration-100 ease-linear' onClick={() => setOpen(false)}>Github</Link>
 
 				</div>
 

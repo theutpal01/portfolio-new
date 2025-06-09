@@ -31,7 +31,7 @@ const Info = () => {
 			</Group>
 			<Divider />
 
-			<div className='flex items-center justify-center self-center py-5 min-h-screen w-full'>
+			<div className='flex items-center justify-center self-center py-5 w-full'>
 				{active === "info" && <InfoSection />}
 				{active === "skills" && <SkillsSection />}
 				{active === "contact" && <ContactSection />}

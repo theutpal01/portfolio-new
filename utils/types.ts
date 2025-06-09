@@ -1,3 +1,5 @@
+import React from "react";
+
 interface ProjectType {
 	title: string;
 	image: string; 
@@ -35,4 +37,17 @@ interface LinkType {
 	children: React.ReactNode;
 }
 
-export type { ProjectType, ButtonType, GroupButtonType, CardGroupType, LinkType };
+interface InputType {
+	id: string;
+	labelValue?: string;
+	labelClass?: string;
+	inputClass?: string;
+	placeholder?: string;
+	type?: string;
+	value?: string;
+	disabled?: boolean;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+	onClick?: (e: React.MouseEvent<HTMLInputElement> | React.MouseEvent<HTMLTextAreaElement>) => void;
+}
+
+export type { ProjectType, ButtonType, GroupButtonType, CardGroupType, LinkType, InputType };
