@@ -63,7 +63,7 @@ const MenuView = ({open, setOpen}: {open: boolean, setOpen : Dispatch<SetStateAc
 
 			<div className={`absolute w-full top-0 bottom-0 left-0 right-0 flex flex-col items-start gap-5 bg-black/30 backdrop-blur-[2px] px-4 md:px-8 lg:px-20 xl:px-28 -z-10 pointer-events-auto ${open ? "h-full" : "h-0 overflow-hidden"} duration-200 ease-in-out`}>
 
-				<div className={`flex flex-col *:w-fit pt-32 z-30 ${open ? "h-[80vh]" : "h-0 overflow-hidden"} duration-200 ease-in-out pointer text-7xl md:text-8xl lg:text-9xl *:flex *:items-center *:gap-5`}>
+				<div className={`flex flex-col *:w-fit pt-32 z-30 ${open ? "h-[75vh]" : "h-0 overflow-hidden"} duration-200 ease-in-out pointer text-7xl md:text-8xl lg:text-9xl *:flex *:items-center *:gap-5`}>
 					<Link href='/' className='font-nova-round hover:text-white text-slate-200 duration-100 ease-linear font-bold' onClick={() => handleLinkClick("home")} scroll={false}>
 						Home
 						{active === 'home' && <ArrowLeft className='size-20 md:size-28 lg:size-32' />}
