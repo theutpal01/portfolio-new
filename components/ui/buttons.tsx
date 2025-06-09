@@ -2,7 +2,7 @@
 import { ButtonType, GroupButtonType } from '@/utils/types'
 import { ReactNode } from 'react'
 
-const AButton = ({className, name, color = "primary", disabled, onClick, children} : ButtonType) => {
+const AButton = ({className, type = "button", name, color = "primary", disabled, onClick, children} : ButtonType) => {
 
 	const colors = {
 	primary: "border-primary text-primary hover:text-foreground before:bg-primary",
@@ -11,7 +11,7 @@ const AButton = ({className, name, color = "primary", disabled, onClick, childre
 	}
 
   return (
-	<button name={name} aria-label={name} className={`${className} ${colors[color]} relative cursor-pointer overflow-hidden font-medium md:font-semibold bg-transparent border-2 z-10 font-aldrich text-lg px-5 py-2 rounded-full duration-300 transition-all before:ease-[cubic-bezier(.01,-0.01,1,.62)] before:transition-all before:duration-200 before:content-[""] before:absolute before:top-0 before:bottom-0 before:left-0 before:-z-10 before:w-0 before:h-full hover:before:w-full active:before:w-0`} disabled={disabled} onClick={onClick}>
+	<button type={type} name={name} aria-label={name} className={`${className} ${colors[color]} relative cursor-pointer overflow-hidden font-medium md:font-semibold bg-transparent border-2 z-10 font-aldrich text-lg px-5 py-2 rounded-full duration-300 transition-all before:ease-[cubic-bezier(.01,-0.01,1,.62)] before:transition-all before:duration-200 before:content-[""] before:absolute before:top-0 before:bottom-0 before:left-0 before:-z-10 before:w-0 before:h-full hover:before:w-full active:before:w-0`} disabled={disabled} onClick={onClick}>
 	  {children}
 	</button>
   )

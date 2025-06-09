@@ -11,6 +11,7 @@ interface ProjectType {
 interface ButtonType {
 	className?: string;
 	disabled?: boolean;
+	type?: "button" | "submit" | "reset";
 	name: string;
 	color?: "primary" | "secondary" | "white";
 	onClick?: () => void;

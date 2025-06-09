@@ -18,6 +18,7 @@ const Navigation = () => {
 
 	const handleScroll = () => {
 		if (window.scrollY > 0) {
+
 			setIsTop(false);
 		} else {
 			setIsTop(true);
@@ -62,32 +63,34 @@ const Navigation = () => {
 	}, [isMobile]);
 	
 	return (
-		<nav className={`${visible ? "top-0" : "-top-20"} duration-200 fixed h-20 left-0 w-full z-50 bg-transparent pointer-events-none p-4 md:p-8`}>
-			
-			<div id='nav-start' className={`flex justify-between items-center`}>
-				<Image onClick={handleHomeRefresh} id='nav-icon' className='cursor-pointer z-50 pointer-events-auto w-10 h-10 md:w-12 md:h-12' src={'/images/logo.png'} alt="Logo" width={50} height={50} />
-				<div className='flex h-fit items-center gap-5 z-50'>
-				<div className='lg:fixed bottom-0 right-0 flex lg:flex-col lg:p-8 gap-3'>
-				<AButton name='instagram redirect' color={isOpen ? "white" : "primary"} className='z-50 pointer-events-auto !text-base md:!text-lg !p-2.5 flex ' disabled={false} onClick={() => handleRedirect('https://www.instagram.com/theutpal01/')}>
-					<Instagram />
-				</AButton>
-				<AButton name='linkedin redirect' color={isOpen ? "white" : "primary"} className='z-50 pointer-events-auto !text-base md:!text-lg !p-2.5 flex ' disabled={false} onClick={() => handleRedirect('https://www.linkedin.com/in/utpal-493b1030b/')}>
-					<Linkedin />
-				</AButton>
+		<>
+			<nav className={`${visible ? "top-0" : "-top-20"} ${!isTop && isMobile ? 'backdrop-blur-md rounded-b-2xl bg-white/5' : ''} duration-200 fixed h-20 left-0 w-full z-50 bg-transparent pointer-events-none p-4 md:p-8`}>
+				
+				<div id='nav-start' className={`flex justify-between items-center`}>
+					<Image onClick={handleHomeRefresh} id='nav-icon' className='cursor-pointer z-50 pointer-events-auto w-10 h-10 md:w-12 md:h-12' src={'/images/logo.png'} alt="Logo" width={50} height={50} />
+					<div className='flex h-fit items-center gap-5 z-50'>
+					<div className='lg:fixed bottom-0 right-0 flex lg:flex-col lg:p-8 gap-3'>
+					<AButton name='instagram redirect' color={isOpen ? "white" : "primary"} className='z-50 pointer-events-auto !text-base md:!text-lg !p-2.5 flex ' disabled={false} onClick={() => handleRedirect('https://www.instagram.com/theutpal01/')}>
+						<Instagram />
+					</AButton>
+					<AButton name='linkedin redirect' color={isOpen ? "white" : "primary"} className='z-50 pointer-events-auto !text-base md:!text-lg !p-2.5 flex ' disabled={false} onClick={() => handleRedirect('https://www.linkedin.com/in/utpal-493b1030b/')}>
+						<Linkedin />
+					</AButton>
+					</div>
+					<AButton name='menu toggle' color={isOpen ? "white" : "primary"} className='z-50 h-fit pointer-events-auto !text-base md:!text-lg' disabled={false} onClick={() => setIsOpen((prev) => !prev)}>{!isOpen ? "Menu" : "Close"}</AButton>
+					</div>
 				</div>
-				<AButton name='menu toggle' color={isOpen ? "white" : "primary"} className='z-50 h-fit pointer-events-auto !text-base md:!text-lg' disabled={false} onClick={() => setIsOpen((prev) => !prev)}>{!isOpen ? "Menu" : "Close"}</AButton>
-				</div>
-			</div>
 
-			<MenuView open={isOpen} setOpen={setIsOpen} />
-			
-			{!isOpen && !isTop && <Link href="" onClick={() => smoothScrollToId('home')} className='hidden lg:flex h-fit fixed gap-3 -right-4 text-primary font-aldrich -rotate-90 top-1/2 -translate-y-1/2 pointer-events-auto z-50 group' scroll={false}>
-				Back to Top <ArrowUp className='rotate-90 group-hover:scale-110 duration-150 group-active:scale-95' />
-			</Link>}
+				<MenuView open={isOpen} setOpen={setIsOpen} />
+				
+				{!isOpen && !isTop && <Link href="" onClick={() => smoothScrollToId('home')} className='hidden lg:flex h-fit fixed gap-3 -right-4 text-primary font-aldrich -rotate-90 top-1/2 -translate-y-1/2 pointer-events-auto z-50 group' scroll={false}>
+					Back to Top <ArrowUp className='rotate-90 group-hover:scale-110 duration-150 group-active:scale-95' />
+				</Link>}
+			</nav>
 			{!isOpen && !isTop && <AButton name='back to top' color='primary' className='flex !bg-background lg:hidden !fixed bottom-0 right-0 z-50 pointer-events-auto !text-base !p-1 m-4' disabled={false} onClick={() => smoothScrollToId('home')}>
 				<ChevronUp />
 			</AButton>}
-		</nav>
+		</>
 	)
 }
 
