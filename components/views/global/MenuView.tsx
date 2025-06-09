@@ -54,15 +54,16 @@ const MenuView = ({open, setOpen}: {open: boolean, setOpen : Dispatch<SetStateAc
 	}, []);
 	
 	return (
-		<div className={`absolute top-0 bottom-0 left-0 -z-20 right-0 ${open ? "h-screen" : "h-0 overflow-hidden"} w-full flex flex-col justify-center items-center bg-secondary duration-200 ease-in-out pointer`}>
-			<div className='absolute left-1/2 top-1/2 -translate-1/2 -z-10 flex flex-row gap-1 w-full h-screen self-center items-center overflow-hidden'>
+		<div className={`absolute top-0 bottom-0 left-0 -z-20 right-0 ${open ? "h-screen" : "h-0 overflow-hidden"} w-full flex flex-col justify-center items-center bg-secondary duration-200 ease-in-out pointer-events-auto`}>
+
+			<div className='absolute left-1/2 top-1/2 -translate-1/2 -z-10 flex flex-row gap-1 w-full h-[screen] self-center items-center overflow-hidden'>
 				<p className='text-scroll-box text-[150vh] font-saira font-bold text-background pointer-events-auto'>UTPAL</p>
 				<p className='text-scroll-box text-[150vh] font-saira font-bold text-background  pointer-events-auto'>UTPAL</p>
 			</div>
 
-			<div className={`absolute w-full top-0 bottom-0 left-0 right-0 flex flex-col gap-5 bg-black/30 backdrop-blur-[2px] px-4 md:px-8 lg:px-20 xl:px-28 -z-10 pointer-events-auto ${open ? "h-screen" : "h-0 overflow-hidden"} duration-200 ease-in-out pointer`}>
+			<div className={`absolute w-full top-0 bottom-0 left-0 right-0 flex flex-col items-start gap-5 bg-black/30 backdrop-blur-[2px] px-4 md:px-8 lg:px-20 xl:px-28 -z-10 pointer-events-auto ${open ? "h-full" : "h-0 overflow-hidden"} duration-200 ease-in-out`}>
 
-				<div className={`flex flex-col *:w-fit pt-32 z-30 ${open ? "h-full" : "h-0 overflow-hidden"} duration-200 ease-in-out pointer text-7xl md:text-8xl lg:text-9xl *:flex *:items-center *:gap-5`}>
+				<div className={`flex flex-col *:w-fit pt-32 z-30 ${open ? "h-[80vh]" : "h-0 overflow-hidden"} duration-200 ease-in-out pointer text-7xl md:text-8xl lg:text-9xl *:flex *:items-center *:gap-5`}>
 					<Link href='/' className='font-nova-round hover:text-white text-slate-200 duration-100 ease-linear font-bold' onClick={() => handleLinkClick("home")} scroll={false}>
 						Home
 						{active === 'home' && <ArrowLeft className='size-20 md:size-28 lg:size-32' />}
@@ -76,7 +77,9 @@ const MenuView = ({open, setOpen}: {open: boolean, setOpen : Dispatch<SetStateAc
 						{active === 'info' && <ArrowLeft className='size-20 md:size-28 lg:size-32' />}
 					</Link>
 				</div>
+
 				<Divider className='block md:hidden !bg-white' />
+				
 				<div className='flex flex-col h-fit w-full text-right justify-end pb-4 lg:pr-8 font-aldrich text-sm md:pb-8'>
 					<h2>LINKS</h2>
 					<Link href='https://www.instagram.com/theutpal01' target='_blank' className='text-lg md:text-2xl font-nova-round hover:text-white text-slate-200 duration-100 ease-linear' onClick={() => setOpen(false)}>Instagram</Link>
