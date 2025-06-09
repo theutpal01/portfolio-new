@@ -15,6 +15,7 @@ const ContactSection = () => {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		setLoading(true);
+		console.log(loading);
 		
 		if (!formData.name || !formData.email || !formData.message) {
 			alert('Please fill in all fields.')
