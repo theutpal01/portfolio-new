@@ -8,13 +8,13 @@ import Link from 'next/link'
 import { smoothScrollToId } from '@/utils/helpers'
 import { useRouter } from 'next/navigation'
 import { useDeviceDetect } from '@/hooks/useMobile'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from "motion/react"
 
 const Navigation = () => {
 	const router = useRouter();
 	const isMobile = useDeviceDetect();
 	const {scrollYProgress} = useScroll();
-	const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+	const rotate = useTransform(scrollYProgress, [0, 1], [0, 720]);
 	const [visible, setVisible] = useState<boolean>(true);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [isTop, setIsTop] = useState<boolean>(true);

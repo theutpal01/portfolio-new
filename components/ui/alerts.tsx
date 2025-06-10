@@ -1,6 +1,6 @@
 import { AlertType, AlertWrapperType } from '@/utils/types'
 import { AlertCircle, AlertTriangle, CheckCircle, X, XCircle } from '@deemlol/next-icons';
-import {motion} from 'framer-motion';
+import {motion} from 'motion/react';
 import React from 'react'
 
 

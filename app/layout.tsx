@@ -4,7 +4,7 @@ import Navigation from "@/components/views/global/Navigation";
 import Footer from "@/components/views/global/Footer";
 import "./globals.css";
 import { AlertProvider } from "@/context/AlertContext";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 // import Cursor from "@/components/ui/cursor";
 
 const novaRound = Nova_Round({

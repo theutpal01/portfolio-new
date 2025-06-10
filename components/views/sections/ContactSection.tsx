@@ -3,6 +3,7 @@ import { LInput, LTextArea } from '@/components/ui/inputs'
 import UnderlineLink from '@/components/ui/links'
 import { useAlert } from '@/context/AlertContext'
 import { Mail, Phone } from '@deemlol/next-icons'
+import {motion} from "motion/react"
 import React from 'react'
 
 const ContactSection = () => {
@@ -70,8 +71,13 @@ const ContactSection = () => {
 	}
 
 	return (
-		<div className='flex flex-col lg:flex-row gap-16 py-16 justify-end items-center'>
-			<div className='w-full lg:w-1/2 flex flex-col gap-3 text-primary font-nova-round'>
+		<div className='flex flex-col lg:flex-row gap-16 justify-end items-center'>
+			<motion.div 
+				initial={{opacity: 0, x: -200}}
+				exit={{opacity: 0, x: -200}}
+				whileInView={{opacity: 1, x: 0}}
+				transition={{duration: 0.3, ease: "easeIn"}}
+				className='w-full lg:w-1/2 h-fit flex flex-col gap-3 text-primary font-nova-round'>
 				<h3 className='text-lg md:text-2xl font-bold mb-8'>Let&apos;s Connect</h3>
 
 				<p className='text-sm md:text-lg text-wrap'>
@@ -89,9 +95,14 @@ const ContactSection = () => {
 						<UnderlineLink href='tel:+917451948191'>+91 745 194 8191</UnderlineLink>
 					</li>
 				</ul>
-			</div>
+			</motion.div>
 
-			<div className='w-full self-center lg:w-1/2 flex flex-col justify-center items-center lg:items-end'>
+			<motion.div 
+				initial={{opacity: 0, y: 200}}
+				exit={{opacity: 0, y: 200}}
+				whileInView={{opacity: 1, y: 0}}
+				transition={{duration: 0.3, delay: 0.1, ease: "easeIn"}} 
+				className='w-full self-center lg:w-1/2 flex flex-col justify-center items-center lg:items-end'>
 				<form className='flex flex-col gap-3 p-5 rounded-md border-2 drop-shadow text-primary' onSubmit={handleSubmit} >
 					<LInput id='name' labelValue="Name" value={formData.name} type='text' placeholder='Enter Value' onChange={(e) => setFormData({...formData, name: e.target.value})} />
 					<LInput id='email' labelValue="Email" value={formData.email} type='text' placeholder='Enter Value' onChange={(e) => setFormData({...formData, email: e.target.value})} />
@@ -100,7 +111,7 @@ const ContactSection = () => {
 						Submit
 					</AButton>
 				</form>
-			</div>
+			</motion.div>
 		</div>
 	)
 }

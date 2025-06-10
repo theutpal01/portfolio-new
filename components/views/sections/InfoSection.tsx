@@ -18,7 +18,8 @@ const InfoSection = () => {
   	};
 
 	return (
-		<div className='flex flex-col lg:flex-row gap-5 justify-between items-center'>
+		<div
+			className='flex w-full flex-col lg:flex-row gap-5 justify-between items-center'>
 			<div className='w-full lg:w-1/2 flex items-center md:justify-center'>
 				<Image src={"/images/me.png"} alt="Profile Picture" width={150} height={150} className='rounded-full w-full max-w-lg' />
 			</div>

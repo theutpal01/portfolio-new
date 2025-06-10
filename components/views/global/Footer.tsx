@@ -3,15 +3,15 @@ import React from 'react'
 import UnderlineLink from '@/components/ui/links'
 import { Divider } from '@/components/ui/dividers'
 import { smoothScrollToId } from '@/utils/helpers'
-import {motion} from 'framer-motion'
+import {motion} from 'motion/react'
 
 const Label = ({className, text} : {className: string, text: string}) => {
 	return (
 		<motion.span
-			initial={{ opacity: 0, y: 70 }}
-			exit={{ opacity: 0, y: 70 }}
+			initial={{ opacity: 0, y: 30 }}
+			exit={{ opacity: 0, y: 30 }}
 			whileInView={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5, ease: 'easeInOut' }}
+			transition={{ duration: 0.3, ease: 'easeInOut' }}
 			className={`${className} bg-background hidden md:block border-2 border-primary rounded-full px-5 py-3 font-semibold text-xs md:text-sm lg:text-base xl:text-lg text-primary`}>
 			{text}
 		</motion.span>
@@ -23,27 +23,27 @@ const Footer = () => {
 	<footer className='flex flex-col gap-4'>
 		<Divider />
 		<motion.div 
-			initial={{ opacity: 0, x: -250 }}
-			exit={{ opacity: 0, y: -250 }}
-			transition={{ duration: 0.5, ease: 'easeInOut' }}
+			initial={{ opacity: 0, x: -50 }}
+			exit={{ opacity: 0, y: -50 }}
+			transition={{ duration: 0.2, ease: 'linear' }}
 			whileInView={{ opacity: 1, x: 0 }}
 			className='flex flex-col md:flex-row gap-5 gap-y-3 font-aldrich text-primary text-sm md:text-xl md:items-center z-0'>
 			<p className='text-base md:text-lg'>EXPLORE</p>
 			<div className='flex gap-x-5'>
 			<UnderlineLink href='/' className='font-nova-round' onClick={() => smoothScrollToId("home")}>Home</UnderlineLink>
 			<UnderlineLink href='/' className='font-nova-round' onClick={() => smoothScrollToId("work")} >Work</UnderlineLink>
-			<UnderlineLink href='/' className='font-nova-round' onClick={() => smoothScrollToId("info")}>About Me</UnderlineLink>
-			{/* <UnderlineLink href='/' className='font-nova-round'>Skills</UnderlineLink> */}
-			{/* <UnderlineLink href='/' className='font-nova-round'>Contact</UnderlineLink> */}
+			<UnderlineLink href='/' className='font-nova-round' onClick={() => smoothScrollToId("info")}>About</UnderlineLink>
+			<UnderlineLink href='/' className='font-nova-round' onClick={() => smoothScrollToId("skills")}>Skills</UnderlineLink>
+			<UnderlineLink href='/' className='font-nova-round' onClick={() => smoothScrollToId("contact")}>Contact</UnderlineLink>
 			</div>
 		</motion.div>
 		<div id="trigger-end" className='relative -z-10 flex justify-center w-fit self-center'>
 			<motion.h2
-				initial={{ opacity: 0, y: 50 }}
-				exit={{ opacity: 0, y: 50 }}
-				transition={{ duration: 0.3, ease: 'easeInOut' }}
+				initial={{ opacity: 0, y: 150 }}
+				exit={{ opacity: 0, y: 150 }}
+				transition={{ duration: 0.5, ease: 'easeInOut' }}
 				whileInView={{ opacity: 1, y: 0 }} 
-				className='text-primary select-none text-center font-nova-round text-[7rem] sm:text-[11rem] md:text-[13rem] lg:text-[17rem] xl:text-[20rem] leading-none'>
+				className='text-primary select-none text-center overflow-hidden font-nova-round text-[7rem] sm:text-[11rem] md:text-[13rem] lg:text-[17rem] xl:text-[20rem] leading-none'>
 				Thanks
 			</motion.h2>
 
