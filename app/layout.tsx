@@ -3,7 +3,6 @@ import {  Monoton, Aldrich, Nova_Round, Saira_Stencil_One } from "next/font/goog
 import Navigation from "@/components/views/global/Navigation";
 import Footer from "@/components/views/global/Footer";
 import "./globals.css";
-import { AlertWrapper } from "@/components/ui/alerts";
 import { AlertProvider } from "@/context/AlertContext";
 import { AnimatePresence } from "framer-motion";
 // import Cursor from "@/components/ui/cursor";
