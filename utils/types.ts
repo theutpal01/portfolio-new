@@ -51,4 +51,23 @@ interface InputType {
 	onClick?: (e: React.MouseEvent<HTMLInputElement> | React.MouseEvent<HTMLTextAreaElement>) => void;
 }
 
-export type { ProjectType, ButtonType, GroupButtonType, CardGroupType, LinkType, InputType };
+interface AlertWrapperType {
+	className?: string;
+	horizontal?: "left" | "center" | "right";
+	vertical?: "top" | "center" | "bottom";
+	children: React.ReactNode;
+}
+
+interface AlertType {
+	className?: string;
+	type?: "success" | "error" | "info" | "warning";
+	horizontal?: "left" | "center" | "right";
+	vertical?: "top" | "center" | "bottom";
+	message: string;
+	delay?: number;
+	show?: boolean;
+	onClose?: () => void;
+
+}
+
+export type { ProjectType, ButtonType, GroupButtonType, CardGroupType, LinkType, InputType, AlertWrapperType, AlertType };

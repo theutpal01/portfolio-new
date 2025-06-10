@@ -1,10 +1,12 @@
 import { AButton } from '@/components/ui/buttons'
 import { LInput, LTextArea } from '@/components/ui/inputs'
 import UnderlineLink from '@/components/ui/links'
+import { useAlert } from '@/context/AlertContext'
 import { Mail, Phone } from '@deemlol/next-icons'
 import React from 'react'
 
 const ContactSection = () => {
+	const {showAlert} = useAlert();
 	const [loading, setLoading] = React.useState(false)
 	const [formData, setFormData] = React.useState({
 		name: '',
@@ -14,16 +16,27 @@ const ContactSection = () => {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
+		if (loading) return;
 		setLoading(true);
 		console.log(loading);
 		
 		if (!formData.name || !formData.email || !formData.message) {
-			alert('Please fill in all fields.')
+			showAlert({
+				type: 'warning',
+				message: 'Please fill in all fields.',
+				delay: 3
+			})
+			setLoading(false);
 			return
 		}
 		
 		if (!/\S+@\S+\.\S+/.test(formData.email)) {
-			alert('Please enter a valid email address.')
+			showAlert({
+				type: 'warning',
+				message: 'Please enter a valid email address.',
+				delay: 3
+			});
+			setLoading(false);
 			return
 		}
 
@@ -38,14 +51,22 @@ const ContactSection = () => {
 		const respose = await res.json();
 
 		if (!respose.success) {
-			alert('There was an error submitting the form. Please try again later.')
-			setLoading(false)
+			showAlert({
+				type: 'error',
+				message: 'Something went wrong',
+				delay: 3
+			})
+			setLoading(false);
 			return
 		}
 
-		setLoading(false)
-		alert('Thank you for reaching out! I will get back to you soon.')
+		showAlert({
+			type: 'success',
+			message: 'Thanks for reaching out!',
+			delay: 3
+		});
 		setFormData({ name: '', email: '', message: '' });
+		setLoading(false)
 	}
 
 	return (
@@ -73,9 +94,9 @@ const ContactSection = () => {
 			<div className='w-full self-center lg:w-1/2 flex flex-col justify-center items-center lg:items-end'>
 				<form className='flex flex-col gap-3 p-5 rounded-md border-2 drop-shadow text-primary' onSubmit={handleSubmit} >
 					<LInput id='name' labelValue="Name" value={formData.name} type='text' placeholder='Enter Value' onChange={(e) => setFormData({...formData, name: e.target.value})} />
-					<LInput id='email' labelValue="Email" value={formData.email} type='email' placeholder='Enter Value' onChange={(e) => setFormData({...formData, email: e.target.value})} />
+					<LInput id='email' labelValue="Email" value={formData.email} type='text' placeholder='Enter Value' onChange={(e) => setFormData({...formData, email: e.target.value})} />
 					<LTextArea id='message' labelValue="Message" value={formData.message} type='textarea' placeholder='Enter Value' onChange={(e) => setFormData({...formData, message: e.target.value})} />
-					<AButton type='submit' name='submit-contact-form' className='w-fit self-center'>
+					<AButton type='submit' disabled={loading} name='submit-contact-form' className='w-fit self-center'>
 						Submit
 					</AButton>
 				</form>

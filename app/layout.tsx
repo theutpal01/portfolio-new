@@ -3,6 +3,9 @@ import {  Monoton, Aldrich, Nova_Round, Saira_Stencil_One } from "next/font/goog
 import Navigation from "@/components/views/global/Navigation";
 import Footer from "@/components/views/global/Footer";
 import "./globals.css";
+import { AlertWrapper } from "@/components/ui/alerts";
+import { AlertProvider } from "@/context/AlertContext";
+import { AnimatePresence } from "framer-motion";
 // import Cursor from "@/components/ui/cursor";
 
 const novaRound = Nova_Round({
@@ -56,13 +59,18 @@ export default function RootLayout({
   return (
 	
     <html lang="en">
-      <body
+      	<body
         className={`${novaRound.variable} ${monoton.variable} ${aldrich.variable} ${sairaStencilOne.variable} px-4 md:px-8 lg:px-20 xl:px-32 m-auto container antialiased`}>
-			{/* <Cursor /> */}
-		<Navigation />
-        {children}
-		<Footer />
-      </body>
+		
+			<AnimatePresence>
+				<AlertProvider>
+					<Navigation />
+					{children}
+					<Footer />
+				</AlertProvider>
+			</AnimatePresence>
+     
+		</body>
     </html>
   );
 }
