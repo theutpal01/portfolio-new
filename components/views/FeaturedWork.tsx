@@ -22,7 +22,11 @@ const FeaturedWork = () => {
 				<Divider key={`divider-${index}`} className='my-5' />
 				</div>
 			))}
-			<p className='text-primary text-[1.5rem] md:text-[3rem] font-nova-round'>MORE WORK COMING SOON</p>
+			<div className='flex justify-between'>
+				<p className='text-primary text-[1.5rem] md:text-[3rem] font-nova-round'>
+					MORE WORK COMING SOON
+				</p>
+			</div>
 			<Divider className='mb-8 mt-5' />
 		</div>
   )

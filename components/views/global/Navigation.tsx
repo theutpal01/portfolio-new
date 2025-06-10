@@ -1,14 +1,15 @@
 "use client"
 import Image from 'next/image'
 import { AButton } from '@/components/ui/buttons'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MenuView from './MenuView'
 import { ArrowUp, ChevronUp, Instagram, Linkedin } from '@deemlol/next-icons'
 import Link from 'next/link'
-import { smoothScrollToId } from '@/utils/helpers'
+import { verticalLoop, smoothScrollToId } from '@/utils/helpers'
 import { useRouter } from 'next/navigation'
 import { useDeviceDetect } from '@/hooks/useMobile'
 import { motion, useScroll, useTransform } from "motion/react"
+import gsap from 'gsap'
 
 const Navigation = () => {
 	const router = useRouter();
@@ -21,7 +22,6 @@ const Navigation = () => {
 
 	const handleScroll = () => {
 		if (window.scrollY > 0) {
-
 			setIsTop(false);
 		} else {
 			setIsTop(true);
@@ -63,6 +63,12 @@ const Navigation = () => {
 			window.removeEventListener('scroll', handleHideScroll);
 		};
 	}, [isMobile]);
+
+	useEffect(() => {
+		const boxes = gsap.utils.toArray(".vertical-text") as HTMLElement[];
+		const loop = verticalLoop(boxes, { repeat: -1, speed: 0.03, verticalWriting: true });
+		loop?.play();
+	}, []);
 	
 	return (
 		<>
@@ -96,6 +102,20 @@ const Navigation = () => {
 			{!isOpen && !isTop && <AButton name='back to top' color='primary' className='flex !bg-background lg:hidden !fixed bottom-0 right-0 z-50 pointer-events-auto !text-base !p-1 m-4' disabled={false} onClick={() => smoothScrollToId('home')}>
 				<ChevronUp />
 			</AButton>}
+
+			<div className='hidden lg:flex flex-col cursor-vertical-text z-50 fixed top-1/2 left-0 -translate-y-5/12 translate-x-full h-10/12 text-2xl lg:text-2xl overflow-hidden rounded-full mb-16'>
+				<div className={`flex flex-col gap-2 rounded-full *:font-thin font-nova-round ${isOpen ? 'text-foreground' : 'text-primary'}`}>
+					<p className='vertical-text rotate-180' style={{writingMode: 'vertical-lr'}}>
+						WEB DEVELOPER · COLLEGE STUDENT · AI ENTHUSIAST ·
+					</p>
+					<p className='vertical-text rotate-180' style={{writingMode: 'vertical-lr'}}>
+						WEB DEVELOPER · COLLEGE STUDENT · AI ENTHUSIAST ·
+					</p>
+					<p className='vertical-text rotate-180' style={{writingMode: 'vertical-lr'}}>
+						WEB DEVELOPER · COLLEGE STUDENT · AI ENTHUSIAST ·
+					</p>
+				</div>
+			</div>
 		</>
 	)
 }

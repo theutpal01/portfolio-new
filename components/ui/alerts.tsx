@@ -10,7 +10,7 @@ const AlertWrapper = (
 	const positionClass = `${vertical}-0 ${horizontal}-0`;
 
 	return (
-		<div className={`${className} z-[200] fixed ${positionClass} flex flex-col gap-3 w-full m-3 sm:max-w-sm`}>
+		<div className={`${className} z-[200] fixed ${positionClass} flex flex-col gap-3 w-full p-3 sm:max-w-sm`}>
 			{children}
 		</div>
 	)
